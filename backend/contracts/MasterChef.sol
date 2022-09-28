@@ -22,6 +22,18 @@ interface IMigratorChef {
     function migrate(IERC20 token) external returns (IERC20);
 }
 
+interface IMasterChef{
+     // Info of each user.
+    struct UserInfo {
+        uint256 amount;     // How many LP tokens the user has provided.
+        uint256 rewardDebt; // Reward debt. See explanation below.
+    }
+
+    function userInfo(uint256 key) external view returns (UserInfo memory);
+
+    function pendingSushi(uint256 _pid, address _user) external view returns (uint256);
+
+}
 
 // MasterChef is the master of Sushi. He can make Sushi and he is a fair guy.
 //
